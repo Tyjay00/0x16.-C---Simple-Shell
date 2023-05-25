@@ -56,7 +56,7 @@ int _myhistory(info_t *info)
  * @info: parameter struct
  * @str: the string alias
  *
- * Return: Always 0 on success, 1 on error
+ * Return: Always 0 on success, otherwise 1 on error
  */
 
 int unset_alias(info_t *info, char *str)
@@ -80,7 +80,7 @@ int unset_alias(info_t *info, char *str)
  * print_alias - prints an alias string
  * @node: the alias node
  *
- * Return: Always 0 on success, 1 on error
+ * Return: Always 0 on success, else 1 on error
  */
 
 int print_alias(list_t *node)
@@ -106,7 +106,7 @@ int print_alias(list_t *node)
  * @info: parameter struct
  * @str: the string alias
  *
- * Return: Always 0 on success, 1 on error
+ * Return: Always 0 on success, else 1 on error
  */
 
 int set_alias(info_t *info, char *str)
