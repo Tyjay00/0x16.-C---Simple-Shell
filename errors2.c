@@ -1,19 +1,32 @@
 #include "shell.h"
 
 /**
-<<<<<<< HEAD:errors2.c
- * print_error - function prints an error message
-=======
- * convert_number - converter function, a clone of itoa
+ * remove_comments - function substitutes "0" for the first occurence of "#"
+ * @buf: address of the string to modify
+ *
+ * Return: Always 0;
+ */
+void remove_comments(char *buf)
+{
+	int i;
+
+	for (i = 0; buf[i] != '\0'; i++)
+		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+		{
+			buf[i] = '\0';
+			break;
+		}
+}
+
+/**
+ * convert_number - a converter function that mimics itoa
  * @num: number
  * @base: base
  * @flags: argument flags
  *
  * Return: string
  */
-
 char *convert_number(long int num, int base, int flags)
-
 {
 	static char *array;
 	static char buffer[50];
@@ -42,74 +55,7 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - this function replaces first instance of '#' with '\0'
- * @buf: address of the string to modify
- *
- * Return: Always 0;
- */
-
-void remove_comments(char *buf)
-
-{
-	int i;
-
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
-		{
-			buf[i] = '\0';
-			break;
-		}
-}
-
-/**
- * print_error - this function prints an error message
->>>>>>> 32e1edc381d1512888bc6188065fd5457e664757:errors1.c
- * @info: the parameter & return info struct
- * @estr: string containing specified error type
- * Return: 0 if no numbers in string, converted number otherwise
- *        -1 on error
- */
-void print_error(info_t *info, char *estr)
-{
-	_eputs(info->fname);
-	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(estr);
-}
-
-/**
- * _erratoi - function converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
- *       -1 on error
- */
-int _erratoi(char *s)
-{
-	int i = 0;
-	unsigned long int result = 0;
-
-	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (i = 0;  s[i] != '\0'; i++)
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			result *= 10;
-			result += (s[i] - '0');
-			if (result > INT_MAX)
-				return (-1);
-		}
-		else
-			return (-1);
-	}
-	return (result);
-}
-
-/**
- * print_d - function prints a decimal (integer) number (base 10)
+ * print_d - function outputs an integer decimal (base 10) number.
  * @input: the input
  * @fd: the filedescriptor to write to
  *
@@ -148,55 +94,47 @@ int print_d(int input, int fd)
 }
 
 /**
- * remove_comments - function replaces first instance of '#' with '\0'
- * @buf: address of the string to modify
- *
- * Return: Always 0;
+ * _erratoi - creates an integer from a string
+ * @s: the string being transformed
+ * Return: 0 if no numbers in string, converted number otherwise
+ *       -1 on error
  */
-void remove_comments(char *buf)
+int _erratoi(char *s)
 {
-	int i;
+	int i = 0;
+	unsigned long int result = 0;
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+	if (*s == '+')
+		s++;  /* TODO: why does this make main return 255? */
+	for (i = 0;  s[i] != '\0'; i++)
+	{
+		if (s[i] >= '0' && s[i] <= '9')
 		{
-			buf[i] = '\0';
-			break;
+			result *= 10;
+			result += (s[i] - '0');
+			if (result > INT_MAX)
+				return (-1);
 		}
+		else
+			return (-1);
+	}
+	return (result);
 }
 
 /**
- * convert_number - converter function, a clone of itoa
- * @num: number
- * @base: base
- * @flags: argument flags
- *
- * Return: string
+ * print_error - prints a message in error
+ * @info: information struct for parameters and returns
+ * @estr: string with the indicated error type
+ * Return: 0 if no numbers in string, converted number otherwise
+ *        -1 on error
  */
-char *convert_number(long int num, int base, int flags)
+void print_error(info_t *info, char *estr)
 {
-	static char *array;
-	static char buffer[50];
-	char sign = 0;
-	char *ptr;
-	unsigned long n = num;
-
-	if (!(flags & CONVERT_UNSIGNED) && num < 0)
-	{
-		n = -num;
-		sign = '-';
-
-	}
-	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
-
-	do	{
-		*--ptr = array[n % base];
-		n /= base;
-	} while (n != 0);
-
-	if (sign)
-		*--ptr = sign;
-	return (ptr);
+	_eputs(info->fname);
+	_eputs(": ");
+	print_d(info->line_count, STDERR_FILENO);
+	_eputs(": ");
+	_eputs(info->argv[0]);
+	_eputs(": ");
+	_eputs(estr);
 }
