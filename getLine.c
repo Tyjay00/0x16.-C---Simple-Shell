@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * read_buf - reads a buffer
+ * read_buf - function reads a buffer
  * @info: parameter struct
  * @buf: buffer
  * @i: size
@@ -38,7 +38,7 @@ void sigintHandler(__attribute__((unused))int sig_num)
 }
 
 /**
- * _getline - gets the next line of input from STDIN
+ * _getline - function gets the next line of input from STDIN
  * @info: parameter struct
  * @ptr: address of pointer to buffer, preallocated or NULL
  * @length: size of preallocated ptr buffer if not NULL
@@ -87,7 +87,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
- * get_input - gets a line minus the newline
+ * get_input - function gets a line minus the newline
  * @info: parameter struct
  *
  * Return: bytes read
@@ -134,7 +134,7 @@ ssize_t get_input(info_t *info)
 }
 
 /**
- * input_buf - buffers chained commands
+ * input_buf - function buffers chained commands
  * @info: parameter struct
  * @buf: address of buffer
  * @len: address of len var
