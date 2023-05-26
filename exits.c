@@ -1,41 +1,8 @@
 #include "shell.h"
 
 /**
-<<<<<<< HEAD
- **_strchr - function locates a character in a string
-=======
- **_strncat - function concatenates two strings
- *@dest: the first string
- *@src: the second string
- *@n: the amount of bytes to be maximally used
- *Return: the concatenated string
- */
-
-char *_strncat(char *dest, char *src, int n)
-
-{
-	int i, j;
-	char *s = dest;
-
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0' && j < n)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	if (j < n)
-		dest[i] = '\0';
-	return (s);
-}
-
-/**
- **_strchr - function locates a character in a string
->>>>>>> 32e1edc381d1512888bc6188065fd5457e664757
- *@s: the string to be parsed
+ **_strchr - seeks out a character within a string
+ *@s: string that has to be parsed
  *@c: the character to look for
  *Return: (s) a pointer to the memory area s
  */
@@ -50,8 +17,8 @@ char *_strchr(char *s, char c)
 }
 
 /**
- **_strncpy - function copies a string
- *@dest: the destination string to be copied to
+ **_strncpy - duplicates a string
+ *@dest: the string to be copied to at the destination
  *@src: the source string
  *@n: the amount of characters to be copied
  *Return: the concatenated string
@@ -80,10 +47,10 @@ char *_strncpy(char *dest, char *src, int n)
 }
 
 /**
- **_strncat - function concatenates two strings
+ **_strncat - joins two strings together
  *@dest: the first string
  *@src: the second string
- *@n: the amount of bytes to be maximally used
+ *@n: the maximum number of bytes to be used
  *Return: the concatenated string
  */
 char *_strncat(char *dest, char *src, int n)
