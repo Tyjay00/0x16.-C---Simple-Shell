@@ -2,7 +2,7 @@
 
 /**
 <<<<<<< HEAD:errors2.c
- * print_error - prints an error message
+ * print_error - function prints an error message
 =======
  * convert_number - converter function, a clone of itoa
  * @num: number
@@ -62,7 +62,7 @@ void remove_comments(char *buf)
 }
 
 /**
- * print_error - function prints an error message
+ * print_error - this function prints an error message
 >>>>>>> 32e1edc381d1512888bc6188065fd5457e664757:errors1.c
  * @info: the parameter & return info struct
  * @estr: string containing specified error type
