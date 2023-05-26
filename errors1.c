@@ -39,7 +39,7 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - function replaces first instance of '#' with '\0'
+ * remove_comments - this function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
  *
  * Return: Always 0;
@@ -59,7 +59,7 @@ void remove_comments(char *buf)
 }
 
 /**
- * print_error - prints an error message
+ * print_error - function prints an error message
  * @info: the parameter & return info struct
  * @estr: string containing specified error type
  * Return: 0 if no numbers in string, converted number otherwise
@@ -79,7 +79,7 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * _erratoi - converts a string to an integer
+ * _erratoi - function converts a string to an integer
  * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  *       -1 on error
