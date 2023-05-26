@@ -5,9 +5,7 @@
  * @info: struct address
  * @all: true if freeing all fields
  */
-
 void free_info(info_t *info, int all)
-
 {
 	ffree(info->argv);
 	info->argv = NULL;
@@ -35,9 +33,7 @@ void free_info(info_t *info, int all)
  * clear_info - initializes info_t struct
  * @info: struct address
  */
-
 void clear_info(info_t *info)
-
 {
 	info->arg = NULL;
 	info->argv = NULL;
@@ -50,9 +46,7 @@ void clear_info(info_t *info)
  * @info: struct address
  * @av: argument vector
  */
-
 void set_info(info_t *info, char **av)
-
 {
 	int i = 0;
 
@@ -78,4 +72,3 @@ void set_info(info_t *info, char **av)
 		replace_vars(info);
 	}
 }
-
