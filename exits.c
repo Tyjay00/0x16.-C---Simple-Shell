@@ -2,7 +2,7 @@
 
 /**
 <<<<<<< HEAD
- **_strchr - locates a character in a string
+ **_strchr - function locates a character in a string
 =======
  **_strncat - function concatenates two strings
  *@dest: the first string
@@ -80,7 +80,7 @@ char *_strncpy(char *dest, char *src, int n)
 }
 
 /**
- **_strncat - concatenates two strings
+ **_strncat - function concatenates two strings
  *@dest: the first string
  *@src: the second string
  *@n: the amount of bytes to be maximally used
