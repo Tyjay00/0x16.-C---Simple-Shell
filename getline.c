@@ -1,6 +1,31 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD:getline.c
+=======
+ * read_buf - function reads a buffer
+ * @info: parameter struct
+ * @buf: buffer
+ * @i: size
+ *
+ * Return: r
+ */
+
+ssize_t read_buf(info_t *info, char *buf, size_t *i)
+
+{
+	ssize_t r = 0;
+
+	if (*i)
+		return (0);
+	r = read(info->readfd, buf, READ_BUF_SIZE);
+	if (r >= 0)
+		*i = r;
+	return (r);
+}
+
+/**
+>>>>>>> 32e1edc381d1512888bc6188065fd5457e664757:getLine.c
  * sigintHandler - blocks ctrl-C
  * @sig_num: the signal number
  *
@@ -14,7 +39,7 @@ void sigintHandler(__attribute__((unused))int sig_num)
 }
 
 /**
- * _getline - gets the next line of input from STDIN
+ * _getline - function gets the next line of input from STDIN
  * @info: parameter struct
  * @ptr: address of pointer to buffer, preallocated or NULL
  * @length: size of preallocated ptr buffer if not NULL
@@ -61,7 +86,11 @@ int _getline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
+<<<<<<< HEAD:getline.c
  * read_buf - reads a buffer
+=======
+ * get_input - function gets a line minus the newline
+>>>>>>> 32e1edc381d1512888bc6188065fd5457e664757:getLine.c
  * @info: parameter struct
  * @buf: buffer
  * @i: size
@@ -81,7 +110,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 }
 
 /**
- * input_buf - buffers chained commands
+ * input_buf - function buffers chained commands
  * @info: parameter struct
  * @buf: address of buffer
  * @len: address of len var

@@ -1,7 +1,40 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD
  **_strchr - locates a character in a string
+=======
+ **_strncat - function concatenates two strings
+ *@dest: the first string
+ *@src: the second string
+ *@n: the amount of bytes to be maximally used
+ *Return: the concatenated string
+ */
+
+char *_strncat(char *dest, char *src, int n)
+
+{
+	int i, j;
+	char *s = dest;
+
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	if (j < n)
+		dest[i] = '\0';
+	return (s);
+}
+
+/**
+ **_strchr - function locates a character in a string
+>>>>>>> 32e1edc381d1512888bc6188065fd5457e664757
  *@s: the string to be parsed
  *@c: the character to look for
  *Return: (s) a pointer to the memory area s
@@ -17,7 +50,7 @@ char *_strchr(char *s, char c)
 }
 
 /**
- **_strncpy - copies a string
+ **_strncpy - function copies a string
  *@dest: the destination string to be copied to
  *@src: the source string
  *@n: the amount of characters to be copied
