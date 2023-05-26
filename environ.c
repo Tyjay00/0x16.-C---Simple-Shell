@@ -2,7 +2,7 @@
 
 /**
 <<<<<<< HEAD
- * populate_env_list - populates env linked list
+ * populate_env_list - function populates env linked list
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
@@ -19,7 +19,7 @@ int populate_env_list(info_t *info)
 }
 
 /**
- * _myunsetenv - Remove an environment variable
+ * _myunsetenv - function removes an environment variable
 =======
  * _myunsetenv - function removes an environment variable
 >>>>>>> 32e1edc381d1512888bc6188065fd5457e664757
@@ -44,7 +44,7 @@ int _myunsetenv(info_t *info)
 
 /**
 <<<<<<< HEAD
- * _mysetenv - Initialize a new environment variable,
+ * _mysetenv - function initializes a new environment variable,
 =======
  * populate_env_list - function populates env linked list
  * @info: Structure containing potential arguments. Used to maintain
